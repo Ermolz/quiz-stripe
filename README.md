@@ -93,8 +93,13 @@ In the GitHub repository:
 
 1. Open **Settings > Pages** and select **GitHub Actions** as the source.
 2. Open **Settings > Secrets and variables > Actions > Variables**.
-3. Add `VITE_STRIPE_CHECKOUT_URL` with the public Stripe Checkout URL.
+3. Click **New repository variable**.
+4. Set the name to `VITE_STRIPE_CHECKOUT_URL`.
+5. Set its value to the public Stripe Checkout URL.
 
-If the repository variable is not configured, the workflow uses the mock URL
-from `.env.example`. The workflow status badge at the top of this README links
-to the latest lint, build, and deployment run.
+The workflow status badge at the top of this README links to the latest lint,
+build, and deployment run.
+
+Vite embeds `VITE_` variables into the generated frontend bundle, so the
+Checkout URL can be inspected by site visitors. Never use a Stripe Secret Key
+for this value.
