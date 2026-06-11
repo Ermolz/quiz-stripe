@@ -1,5 +1,9 @@
 # React Quiz with Stripe Checkout Redirect
 
+[![Build and Deploy](https://github.com/Ermolz/quiz-stripe/actions/workflows/pages.yml/badge.svg)](https://github.com/Ermolz/quiz-stripe/actions/workflows/pages.yml)
+
+[Live demo](https://ermolz.github.io/quiz-stripe/)
+
 ## Overview
 
 A small, polished quiz application built as a React test assignment. Users
@@ -78,3 +82,19 @@ instead of leaving the page.
 For production, create a Stripe Payment Link or a Checkout Session on a secure
 backend and replace the mock URL in `.env` with the resulting public Checkout
 URL.
+
+## GitHub Pages Deployment
+
+The `.github/workflows/pages.yml` workflow runs ESLint and creates a production
+build for every pull request targeting `master`. Pushes to `master` run the
+same checks and deploy the generated `dist` directory to GitHub Pages.
+
+In the GitHub repository:
+
+1. Open **Settings > Pages** and select **GitHub Actions** as the source.
+2. Open **Settings > Secrets and variables > Actions > Variables**.
+3. Add `VITE_STRIPE_CHECKOUT_URL` with the public Stripe Checkout URL.
+
+If the repository variable is not configured, the workflow uses the mock URL
+from `.env.example`. The workflow status badge at the top of this README links
+to the latest lint, build, and deployment run.
